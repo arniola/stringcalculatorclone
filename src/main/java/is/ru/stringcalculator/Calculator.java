@@ -1,5 +1,6 @@
 package is.ru.stringcalculator;
 
+//Remember to refactor after each passing test.
 public class Calculator {
 
 	public static int add(String text){
@@ -28,6 +29,10 @@ public class Calculator {
 		}
 		return total;
     }
+
+    public static void main(String[] args) { 
+      System.out.println("Hello, World");
+   }
 
 
 

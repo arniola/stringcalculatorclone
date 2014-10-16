@@ -8,7 +8,7 @@ public class CalculatorTest {
 	public static void main(String args[]) {
       org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
     }
-
+//b. An empty string will return 0.
 	@Test
 	public void testEmptyString() {
 		assertEquals(0, Calculator.add(""));
@@ -23,10 +23,11 @@ public class CalculatorTest {
 	public void testTwoNumbers() {
 		assertEquals(3, Calculator.add("1,2"));
 	}	
-
+//a. The method can take 0, 1, or 2 numbers 
+//and will return their sum.
 	@Test
     public void testMultipleNumbers(){
     	assertEquals(6, Calculator.add("1,2,3"));
     }
-
+//c. Example inputs: “”, “1”, or “1,2”
 }
