@@ -29,5 +29,10 @@ public class CalculatorTest {
     public void testMultipleNumbers(){
     	assertEquals(6, Calculator.add("1,2,3"));
     }
-//c. Example inputs: “”, “1”, or “1,2”
+
+    @Test
+    public void testLines(){
+    	assertEquals(6, Calculator.add("1\n2\n3"));
+    }
+
 }

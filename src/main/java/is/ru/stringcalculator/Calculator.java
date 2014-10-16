@@ -2,7 +2,7 @@ package is.ru.stringcalculator;
 
 //Remember to refactor after each passing test.
 public class Calculator {
-
+	//This is the only function that is being tested.
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
@@ -10,10 +10,14 @@ public class Calculator {
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
+
+		else if(text.contains("\n")){
+			return sum(splitLines(text));
+		}
 		else
 			return 1;
 	}
-
+//The functions below are only tested FROM the add funtion.
 	private static int toInt(String number){
 		return Integer.parseInt(number);
 	}
@@ -34,6 +38,9 @@ public class Calculator {
       System.out.println("Hello, World");
    }
 
+   private static String[] splitLines(String numbers){
+	    return numbers.split("\n");
+	}
 
 
 }
