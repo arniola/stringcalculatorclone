@@ -4,19 +4,18 @@ package is.ru.stringcalculator;
 public class Calculator {
 	//This is the only function that is being tested.
 	public static int add(String text){
-		text = text.replace("\n" , ",");
+		
+		text = handleString(text);
 
 		if(text.equals("")){
 			return 0;
 		}
+
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
 
-		else if(text.contains("\n")){
 
-			return sum(splitLines(text));
-		}
 
 		else
 			return 1;
@@ -38,13 +37,30 @@ public class Calculator {
 		return total;
     }
 
-    public static void main(String[] args) { 
-      System.out.println("Hello, World");
-   }
-
    private static String[] splitLines(String numbers){
 	    return numbers.split("\n");
 	}
 
+   private static String handleString(String numbers){
+
+	   	//String delimitercheck = numbers.substring(0,1);
+		numbers = numbers.replace("\n" , ",");
+		String del = "\n";
+		if(numbers.equals("")){
+			return numbers;
+		}
+
+		else if(numbers.contains("//")){
+			del = numbers.substring(2,3);
+			numbers = numbers.substring(3);
+			numbers = numbers.replace(del , ",");
+
+			return numbers;
+		}
+		else{
+			return numbers;
+		}
+
+	}
 
 }
