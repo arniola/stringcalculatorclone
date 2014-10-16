@@ -4,6 +4,8 @@ package is.ru.stringcalculator;
 public class Calculator {
 	//This is the only function that is being tested.
 	public static int add(String text){
+		text = text.replace("\n" , ",");
+
 		if(text.equals("")){
 			return 0;
 		}
@@ -12,7 +14,13 @@ public class Calculator {
 		}
 
 		else if(text.contains("\n")){
+
 			return sum(splitLines(text));
+		}
+
+		else if((text.contains("\n")) && (text.contains(","))){
+			String str = text.replace("\n" , ",");
+			return sum(splitNumbers(str));
 		}
 		else
 			return 1;
@@ -40,6 +48,11 @@ public class Calculator {
 
    private static String[] splitLines(String numbers){
 	    return numbers.split("\n");
+	}
+
+	private static String[] replaceLines(String numbers){
+	    String str = numbers.replace("\n", ",");
+	    return splitLines(str);
 	}
 
 
