@@ -11,38 +11,38 @@ public class CalculatorTest {
 //b. An empty string will return 0.
 	@Test
 	public void testEmptyString() {
-		assertEquals(0, Calculator.add(""));
+		assertEquals(0, Calculator.addnums(""));
 	}
 
 	@Test
 	public void testOneNumber() {
-		assertEquals(1, Calculator.add("1"));
+		assertEquals(1, Calculator.addnums("1"));
 	}
 
 	@Test
 	public void testTwoNumbers() {
-		assertEquals(3, Calculator.add("1,2"));
+		assertEquals(3, Calculator.addnums("1,2"));
 	}	
 //a. The method can take 0, 1, or 2 numbers 
 //and will return their sum.
 	@Test
     public void testMultipleNumbers(){
-    	assertEquals(6, Calculator.add("1,2,3"));
+    	assertEquals(6, Calculator.addnums("1,2,3"));
     }
 
     @Test
     public void testLines(){
-    	assertEquals(6, Calculator.add("1\n2\n3"));
+    	assertEquals(6, Calculator.addnums("1\n2\n3"));
     }
 
     @Test
     public void testLinesCommas(){
-    	assertEquals(6, Calculator.add("1\n2,3"));
+    	assertEquals(6, Calculator.addnums("1\n2,3"));
     }
 
     @Test
     public void testDelimeters(){
-    	assertEquals(3, Calculator.add("//;1;2"));
+    	assertEquals(3, Calculator.addnums("//;1;2"));
     }
 
     //ok, I pass the test but don't know how to use the fail & assertTaht features...

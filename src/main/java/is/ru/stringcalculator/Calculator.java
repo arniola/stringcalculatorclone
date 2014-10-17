@@ -3,15 +3,9 @@ package is.ru.stringcalculator;
 //Remember to refactor after each passing test.
 public class Calculator {
 	//This is the only function that is being tested.
-	/*public static void isnegative(String text) throws Exception{
-		if (text.contains("-")) {
-      		throw new Exception("Negatives not allowed:");       
-   			 }
 
 
-	}*/
-
-	public static int add(String text){
+	public static int addnums(String text){
 		throwExceptionWithNegativeNumbers(text);
 		text = handleString(text);
 
@@ -27,7 +21,7 @@ public class Calculator {
 
 			return 1;
 	}
-//The functions below are only tested FROM the add funtion.
+//The functions below are only tested FROM the addnums funtion.
 	private static int toInt(String number){
 		return Integer.parseInt(number);
 	}
@@ -72,12 +66,23 @@ public class Calculator {
 	}
 
 	private static void throwExceptionWithNegativeNumbers(String number) {
-        //ArrayList<String> negative = extractNegativeNumbers(number, extractDelimiter(number));
+        String[] negatives = number.split(",");
         if (number.contains("-")) {
             throw new IllegalArgumentException("Negative numbers not allowed: ");
-                   // + StringUtils.join(negative.toArray(new String[negative
-                     //       .size()]), DEFAULT_DELIMITER));
+                   // + extractNegativeNumbers(negatives));
         }
     }
 
+/*
+     private static String[] extractNegativeNumbers(String[] numbers){
+
+ 	    String[] negatives = new String[5];
+        for(String number : numbers){
+        	if (toInt(number) < 0)
+
+		    	negatives.add(toInt(number));
+		}
+		return negatives;
+    }
+*/
 }
