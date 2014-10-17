@@ -61,6 +61,11 @@ public class CalculatorTest {
     	assertEquals(2, Calculator.addnums("1001,2"));
     }
 
+    @Test
+    public void testLongDelimiter(){
+    	assertEquals(6, Calculator.addnums("//[***]\n1***2***3"));
+    }
+
 
 }
 

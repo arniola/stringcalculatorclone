@@ -58,7 +58,7 @@
 			}
 
 			else if(numbers.contains("//")){
-				del = numbers.substring(2,3);
+				del = detectDelimiter(numbers);
 				numbers = numbers.substring(3);
 				numbers = numbers.replace(del , ",");
 
@@ -81,7 +81,7 @@
 		    if (	toInt(numb) < 1000){
 		    	newnumber.append(numb);
 		    	newnumber.append(",");}
-		}
+			}
 		//newnumber = newnumber.substring(0);
 
 		return newnumber.toString();
@@ -95,6 +95,25 @@
 	        }
 	    }
 
+	    private static String detectDelimiter(String number) {
+	    	StringBuilder delimiter = new StringBuilder();
+	        if (number.contains("//[")) {
+	        	number = number.substring(2);
+    			for(String numb : splitNumbers(number)){
+						if(numb != "]" && toInt(numb)<0 ){
+							delimiter.append(numb);
+						} 
+
+					}
+					return delimiter.toString();
+				}
+			else {return number.substring(2,3);}
+
+
+	        }
+
+}
+
 	/*
 	     private static String[] extractNegativeNumbers(String[] numbers){
 
@@ -107,4 +126,4 @@
 			return negatives;
 	    }
 	*/
-	}
+	
