@@ -113,7 +113,7 @@
 	        }
 
 }
-
+//komment delete
 	/*
 	     private static String[] extractNegativeNumbers(String[] numbers){
 
