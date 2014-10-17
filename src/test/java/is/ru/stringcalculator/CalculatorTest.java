@@ -56,6 +56,10 @@ public class CalculatorTest {
 	  }
 	}
 
+	@Test
+    public void testBigNumbers(){
+    	assertEquals(2, Calculator.addnums("1001,2"));
+    }
 
 
 }
