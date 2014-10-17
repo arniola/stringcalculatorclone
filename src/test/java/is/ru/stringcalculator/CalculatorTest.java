@@ -45,4 +45,23 @@ public class CalculatorTest {
     	assertEquals(3, Calculator.add("//;1;2"));
     }
 
+    //ok, I pass the test but don't know how to use the fail & assertTaht features...
+    @Test
+	public void testhrowExceptionWithNegativeNumbers() {
+	  try {
+	    new String("-1,2");
+	   // fail("negs not allowed");
+	  } catch (IllegalArgumentException e) {
+	    //assertThat(e.getMessage(), containsString("Negative numbers not allowed: "));
+	  }
+	}
+
+
+
 }
+
+
+
+
+
+
