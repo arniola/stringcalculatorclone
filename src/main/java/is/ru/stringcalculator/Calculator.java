@@ -59,24 +59,9 @@ public class Calculator {
 		}
 		
 		else if(numbers.contains("//[") ){
-			/*
-			Pattern MY_PATTERN = Pattern.compile("\\[(.*?)\\]");
-   			Matcher m = MY_PATTERN.matcher(numbers);
-			while (m.find()) {
-			   del = m.group(1);
-			    // del now contains "delimiter"
-			}*/
-			//numbers = numbers.substring(6);
-			//numbers = numbers.replace("\\]" , ",");
-			//numbers = numbers.replace("\\[" , ",");
 
-			//þegar strengur kemur hingar lítur hann 
-			//svona út. //[***],1***2***3
 			numbers = numbers.replace("," , "");
-			//svona út. //[***]1***2***3
-
 			numbers = numbers.replaceAll("[^\\d]+", " ");
-			//svona út. //[***]1***2***3
 			numbers = numbers.substring(1);
 			numbers = numbers.replace(" " , ",");
 			return numbers;
@@ -108,7 +93,6 @@ public class Calculator {
 		    	newnumber.append(numb);
 		    	newnumber.append(",");}
 			}
-		//newnumber = newnumber.substring(0);
 
 	return newnumber.toString();
 	}
@@ -120,7 +104,6 @@ public class Calculator {
                    // + extractNegativeNumbers(negatives));
         }
     }
-    //tekur inn  ***,1***2***3
     private static String detectDelimiter(String number) {
     	String del = number.substring(0,1);
     	number.trim().replaceAll(del, " ");
