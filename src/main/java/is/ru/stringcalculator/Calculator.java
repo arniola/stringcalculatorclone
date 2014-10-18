@@ -15,13 +15,8 @@ public class Calculator {
 		text = handleString(text);
 		text = removeBigNumbers(text);
 
-		if(text.contains(",")){
-			return sum(splitNumbers(text));
-		}
+		return sum(splitNumbers(text));
 
-    	else 
-
-			return 1;
 	}
 //The functions below are only tested FROM the addnums funtion.
 
