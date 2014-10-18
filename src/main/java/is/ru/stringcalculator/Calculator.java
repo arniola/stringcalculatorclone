@@ -45,11 +45,7 @@ public class Calculator {
 		numbers = numbers.replace("-" , "");
 		String del = "\n";
 	
-		if(numbers.equals("")){
-			return numbers;
-		}
-		
-		else if(numbers.contains("//[") ){
+		if(numbers.contains("//[") ){
 
 			numbers = numbers.replace("," , "");
 			numbers = numbers.replaceAll("[^\\d]+", " ");
