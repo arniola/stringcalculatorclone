@@ -48,9 +48,9 @@ public class Calculator {
 		if(numbers.contains("//[") ){
 
 			numbers = numbers.replace("," , "");
-			numbers = numbers.replaceAll("[^\\d]+", " ");
+			numbers = numbers.replaceAll("[^\\d]+", ",");
 			numbers = numbers.substring(1);
-			numbers = numbers.replace(" " , ",");
+
 			return numbers;
 		}
 
