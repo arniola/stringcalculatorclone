@@ -66,6 +66,11 @@ public class CalculatorTest {
     	assertEquals(6, Calculator.addnums("//[***]\n1***2***3"));
     }
 
+    @Test
+    public void testManyDelimiter(){
+    	assertEquals(6, Calculator.addnums("//[*][%]\n1*2%3"));
+    }
+
 
 }
 
