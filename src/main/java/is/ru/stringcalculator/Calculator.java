@@ -69,9 +69,6 @@ public class Calculator {
 	}
 
 	private static String removeBigNumbers(String number){
-		if(number.equals("")){
-			return number;
-		}
 
 		StringBuilder newnumber = new StringBuilder();
 		String[] oldnumber = splitNumbers(number);
