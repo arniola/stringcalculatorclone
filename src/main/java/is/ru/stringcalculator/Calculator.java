@@ -38,10 +38,6 @@ public class Calculator {
 		return total;
     }
 
-   private static String[] splitLines(String numbers){
-	    return numbers.split("\n");
-	}
-	
 
    private static String handleString(String numbers){
    		
