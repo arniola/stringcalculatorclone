@@ -1,20 +1,23 @@
 	package is.ru.stringcalculator;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 	//Remember to refactor after each passing test.
 	public class Calculator {
 		//This is the only function that is being tested.
 
 
 		public static int addnums(String text){
-			throwExceptionWithNegativeNumbers(text);
-			text = handleString(text);
-			text = removeBigNumbers(text);
-			
 			if(text.equals("")){
 				return 0;
 			}
 
-			else if(text.contains(",")){
+			throwExceptionWithNegativeNumbers(text);
+			text = handleString(text);
+			text = removeBigNumbers(text);
+			
+			
+
+			if(text.contains(",")){
 				return sum(splitNumbers(text));
 			}
 
@@ -45,25 +48,43 @@
 	   private static String[] splitLines(String numbers){
 		    return numbers.split("\n");
 		}
+		
 
 	   private static String handleString(String numbers){
-
-		   	//String delimitercheck = numbers.substring(0,1);
+	   		
 			numbers = numbers.replace("\n" , ",");
 			numbers = numbers.replace("-" , "");
-
 			String del = "\n";
+
+			
 			if(numbers.equals("")){
 				return numbers;
 			}
+			
 
-			else if(numbers.contains("//")){
-				del = detectDelimiter(numbers);
+			else if(numbers.contains("//[") ){
+
+				Pattern MY_PATTERN = Pattern.compile("\\[(.*?)\\]");
+	   			Matcher m = MY_PATTERN.matcher(numbers);
+				while (m.find()) {
+				   del = m.group(1);
+				    // del now contains "delimiter"
+				}
+				//numbers = numbers.substring(6);
+				//numbers = numbers.replace("\\]" , ",");
+				//numbers = numbers.replace("\\[" , ",");
+				numbers = numbers.replace(del , ",");
+				return numbers;
+			}
+
+			else if(numbers.contains("//") ){
+				del = numbers.substring(2,3);
 				numbers = numbers.substring(3);
 				numbers = numbers.replace(del , ",");
 
 				return numbers;
 			}
+
 			else{
 				return numbers;
 			}
@@ -94,22 +115,11 @@
 	                   // + extractNegativeNumbers(negatives));
 	        }
 	    }
-
+	    //tekur inn  ***,1***2***3
 	    private static String detectDelimiter(String number) {
-	    	StringBuilder delimiter = new StringBuilder();
-	        if (number.contains("//[")) {
-	        	number = number.substring(2);
-    			for(String numb : splitNumbers(number)){
-						if(numb != "]" && toInt(numb)<0 ){
-							delimiter.append(numb);
-						} 
-
-					}
-					return delimiter.toString();
-				}
-			else {return number.substring(2,3);}
-
-
+	    	String del = number.substring(0,1);
+	    	number.trim().replaceAll(del, " ");
+	    	return number;
 	        }
 
 }
