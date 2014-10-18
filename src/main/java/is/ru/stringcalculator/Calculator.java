@@ -88,11 +88,7 @@ public class Calculator {
                    // + extractNegativeNumbers(negatives));
         }
     }
-    private static String detectDelimiter(String number) {
-    	String del = number.substring(0,1);
-    	number.trim().replaceAll(del, " ");
-    	return number;
-        }
+    
 
 }
 //komment delete
